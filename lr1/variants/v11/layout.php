@@ -1,14 +1,8 @@
 <?php
 
 require_once dirname(__DIR__, 3) . '/shared/helpers/dev_reload.php';
+require_once dirname(__DIR__, 3) . '/shared/helpers/paths.php';
 
-/**
- * Renders the full variant page layout with fixed header
- *
- * @param string $content HTML content for the page
- * @param string $taskName Task name for title (e.g., "Завдання 3")
- * @param string $bodyClass CSS class for body (e.g., "task3-body")
- */
 function renderVariantLayout(string $content, string $taskName, string $bodyClass = ''): void
 {
     $currentTask = basename($_SERVER['SCRIPT_NAME']);
@@ -31,7 +25,8 @@ function renderVariantLayout(string $content, string $taskName, string $bodyClas
 <head>
     <meta charset="UTF-8">
     <title><?= htmlspecialchars($taskName) ?> — Варіант 11 ЛР1</title>
-    <link rel="stylesheet" href="../../demo/demo.css">
+    <link rel="stylesheet" href="<?= webPath(dirname(__DIR__, 3) . '/shared/css/base.css') ?>">
+    <link rel="stylesheet" href="<?= webPath(dirname(__DIR__, 2) . '/demo/demo.css') ?>">
 </head>
 
 <body class="body-with-header <?= htmlspecialchars($bodyClass) ?>">

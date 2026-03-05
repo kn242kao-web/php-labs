@@ -2,80 +2,47 @@
 
 require_once __DIR__ . '/layout.php';
 
+function getSeasonDescription(int $month): string
+{
+    $seasons = [
+        12 => "зима", 1 => "зима", 2 => "зима",
+        3 => "весна", 4 => "весна", 5 => "весна",
+        6 => "літо", 7 => "літо", 8 => "літо",
+        9 => "осінь", 10 => "осінь", 11 => "осінь"
+    ];
+
+    $positions = [
+        12 => "початковий", 3 => "початковий", 6 => "початковий", 9 => "початковий",
+        1 => "середній", 4 => "середній", 7 => "середній", 10 => "середній",
+        2 => "завершальний", 5 => "завершальний", 8 => "завершальний", 11 => "завершальний"
+    ];
+
+    $season = $seasons[$month] ?? "невідомо";
+    $pos = $positions[$month] ?? "невідомо";
+
+    return "{$season}, {$pos} місяць сезону";
+}
+
 $month = 7;
 
+$resultDescription = getSeasonDescription($month);
+
 $monthNames = [
-    1 => 'Січень', 2 => 'Лютий', 3 => 'Березень', 4 => 'Квітень',
-    5 => 'Травень', 6 => 'Червень', 7 => 'Липень', 8 => 'Серпень',
-    9 => 'Вересень', 10 => 'Жовтень', 11 => 'Листопад', 12 => 'Грудень'
+    1 => "Січень", 2 => "Лютий", 3 => "Березень",
+    4 => "Квітень", 5 => "Травень", 6 => "Червень",
+    7 => "Липень", 8 => "Серпень", 9 => "Вересень",
+    10 => "Жовтень", 11 => "Листопад", 12 => "Грудень"
 ];
 
-function determineSeason($m) {
-    if ($m == 12 || $m == 1 || $m == 2) return "Зима";
-    if ($m >= 3 && $m <= 5) return "Весна";
-    if ($m >= 6 && $m <= 8) return "Літо";
-    if ($m >= 9 && $m <= 11) return "Осінь";
-    return "Невідомо";
-}
+$color = "#f59e0b"; 
+$emoji = "☀️";
 
-function daysInMonth($m) {
-    return cal_days_in_month(CAL_GREGORIAN, $m, date('Y'));
-}
+$content = '<div class="card large">
+    <div class="season-emoji">' . $emoji . '</div>
+    <div class="season-month" style="color:' . $color . '">Місяць ' . $month . '</div>
+    <div class="season-month-name">' . $monthNames[$month] . '</div>
+    <div class="season-result" style="font-size: 1.5rem; margin-top: 10px;">' . $resultDescription . '</div>
+    <p class="info" style="margin-top: 20px;">getSeasonDescription(' . $month . ') = "' . $resultDescription . '"</p>
+</div>';
 
-$season = determineSeason($month);
-$monthName = $monthNames[$month] ?? 'Невідомий';
-$days = daysInMonth($month);
-
-ob_start();
-?>
-
-<style>
-    .task-container {
-        text-align: center;
-        font-family: "Times New Roman", serif;
-        color: #000;
-    }
-    .month-title {
-        color: #f39c12; 
-        font-size: 3rem;
-        margin-bottom: 0;
-    }
-    .month-name {
-        font-size: 2rem;
-        margin-top: 0;
-    }
-    .season-name {
-        font-size: 2.5rem;
-        font-weight: bold;
-        margin: 20px 0;
-    }
-    .details {
-        font-size: 1.2rem;
-        line-height: 1.8;
-    }
-    .icon {
-        width: 100px;
-        margin-bottom: 10px;
-    }
-</style>
-
-<div class="task-container">
-    <div class="icon-placeholder">
-        <img src="https://cdn-icons-png.flaticon.com/512/1053/1053862.png" alt="season-icon" class="icon">
-    </div>
-
-    <h1 class="month-title">Місяць <?= $month ?></h1>
-    <h2 class="month-name"><?= $monthName ?></h2>
-    
-    <div class="season-name"><?= $season ?></div>
-
-    <div class="details">
-        <p>Днів у місяці: <b><?= $days ?></b></p>
-        <p>determineSeason(<?= $month ?>) = "<?= $season ?>"</p>
-        <p>daysInMonth(<?= $month ?>) = <?= $days ?></p>
-    </div>
-</div>
-
-<?php
-$content = ob_get_clean();
-renderVariantLayout($content, 'Завдання 3', 'task4-body');
+renderVariantLayout($content, 'Завдання 3', 'task4-body summer');
