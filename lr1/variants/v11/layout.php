@@ -1,33 +1,36 @@
 <?php
-/**
- * Shared layout template for LR1 Variant 11 task pages
- */
 
 require_once dirname(__DIR__, 3) . '/shared/helpers/dev_reload.php';
 
+/**
+ * Renders the full variant page layout with fixed header
+ *
+ * @param string $content HTML content for the page
+ * @param string $taskName Task name for title (e.g., "Завдання 3")
+ * @param string $bodyClass CSS class for body (e.g., "task3-body")
+ */
 function renderVariantLayout(string $content, string $taskName, string $bodyClass = ''): void
 {
     $currentTask = basename($_SERVER['SCRIPT_NAME']);
 
     $variantTasks = [
-        'task1.php' => 'Завдання 1',
-        'task2.php' => 'Завдання 2',
-        'task3.php' => 'Завдання 3',
-        'task4.php' => 'Завдання 4',
-        'task5.php' => 'Завдання 5',
-        'task6.php' => 'Завдання 6',
+        'task2.php' => 'Завдання 1',
+        'task3.php' => 'Завдання 2',
+        'task4.php' => 'Завдання 3',
+        'task5.php' => 'Завдання 4',
+        'task6.php' => 'Завдання 5',
+        'task7_table.php' => 'Завдання 6.1',
+        'task7_squares.php' => 'Завдання 6.2',
     ];
 
-    $v = "11"; 
-    $demoUrl = "/lr1/v{$v}/{$currentTask}?from=v{$v}";
+    $demoUrl = "/lr1/demo/{$currentTask}?from=v11";
     ?>
 <!DOCTYPE html>
 <html lang="uk">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars($taskName) ?> — Варіант <?= $v ?> ЛР1</title>
+    <title><?= htmlspecialchars($taskName) ?> — Варіант 11 ЛР1</title>
     <link rel="stylesheet" href="../../demo/demo.css">
 </head>
 
@@ -35,15 +38,12 @@ function renderVariantLayout(string $content, string $taskName, string $bodyClas
     <header class="header-fixed">
         <div class="header-left">
             <a href="/" class="header-btn">Головна</a>
-            <a href="index.php" class="header-btn">← Варіант <?= $v ?></a>
+            <a href="index.php" class="header-btn">← Варіант 11</a>
             <a href="<?= htmlspecialchars($demoUrl) ?>" class="header-btn header-btn-demo">Demo</a>
         </div>
-        
-        <div class="header-center">
-            </div>
-
+        <div class="header-center"></div>
         <div class="header-right">
-            <span class="header-variant-label">В-<?= $v ?></span>
+            <span class="header-variant-label">В-11</span>
             <select class="header-task-select" onchange="if(this.value) location.href=this.value">
                 <?php foreach ($variantTasks as $file => $name): ?>
                 <option value="<?= htmlspecialchars($file) ?>"
@@ -56,9 +56,7 @@ function renderVariantLayout(string $content, string $taskName, string $bodyClas
     </header>
 
     <div class="content-wrapper">
-        <main class="container">
-            <?= $content ?>
-        </main>
+        <?= $content ?>
     </div>
 
     <?= devReloadScript() ?>

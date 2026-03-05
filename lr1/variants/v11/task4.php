@@ -1,7 +1,5 @@
 <?php
-/**
- * Завдання 3: Визначення сезону та позиції місяця
- */
+
 require_once __DIR__ . '/layout.php';
 
 $month = 7;
@@ -80,4 +78,4 @@ ob_start();
 
 <?php
 $content = ob_get_clean();
-renderVariantLayout($content, 'Завдання 3', 'task3-body');
+renderVariantLayout($content, 'Завдання 3', 'task4-body');

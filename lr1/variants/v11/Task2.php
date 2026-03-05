@@ -1,9 +1,5 @@
 <?php
-/**
- * Завдання 1: Форматований текст
- *
- * Вірш про місто з форматуванням: <b>, <i>, margin-left
- */
+
 require_once __DIR__ . '/layout.php';
 
 ob_start();
@@ -26,4 +22,4 @@ ob_start();
 <?php
 $content = ob_get_clean();
 
-renderVariantLayout($content, 'Завдання 1', 'task1-body');
+renderVariantLayout($content, 'Завдання 1', 'task2-body');
