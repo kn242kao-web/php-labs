@@ -1,7 +1,6 @@
 <?php
 /**
  * Variant 30 Index Page
- * Shows task cards for variant 30
  */
 
 require_once dirname(__DIR__, 3) . '/shared/templates/task_cards.php';

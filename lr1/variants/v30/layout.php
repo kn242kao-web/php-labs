@@ -1,32 +1,14 @@
 <?php
 /**
  * Shared layout template for LR1 Variant 30 task pages
- *
- * Features:
- * - Fixed compact header (50px)
- * - Link back to demo
- * - Task selector dropdown
- *
- * Usage:
- *   require_once __DIR__.'/layout.php';
- *   $content = '...HTML...';
- *   renderVariantLayout($content, $taskName, $bodyClass);
  */
 
 require_once dirname(__DIR__, 3) . '/shared/helpers/dev_reload.php';
 
-/**
- * Renders the full variant page layout with fixed header
- *
- * @param string $content HTML content for the page
- * @param string $taskName Task name for title (e.g., "Завдання 3")
- * @param string $bodyClass CSS class for body (e.g., "task3-body")
- */
 function renderVariantLayout(string $content, string $taskName, string $bodyClass = ''): void
 {
     $currentTask = basename($_SERVER['SCRIPT_NAME']);
 
-    // Variant tasks list for selector
     $variantTasks = [
         'task2.php' => 'Завдання 1',
         'task3.php' => 'Завдання 2',
@@ -37,7 +19,6 @@ function renderVariantLayout(string $content, string $taskName, string $bodyClas
         'task7_squares.php' => 'Завдання 6.2',
     ];
 
-    // Demo URL for this task
     $demoUrl = "/lr1/demo/{$currentTask}?from=v30";
     ?>
 <!DOCTYPE html>

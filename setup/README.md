@@ -26,61 +26,49 @@
 
 ## 🪟 Windows
 
-### Базове встановлення (ЛР 1-5)
+### Встановлення (ЛР 1-5)
 
-Відкрийте **PowerShell** та виконайте:
+1. Відкрийте **PowerShell** (натисніть **Win** → введіть `PowerShell` → **Enter**)
+
+> **Важливо:** НЕ запускайте від імені адміністратора! Просто натисніть Enter.
+
+2. Виконайте команди **по одній** (кожну окремо):
 
 ```powershell
-cd setup
-.\install-basic.ps1
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 ```
 
-### Встановлення для Laravel (ЛР 6-7)
-
 ```powershell
-cd setup
-.\install-laravel.ps1
+irm get.scoop.sh | iex
 ```
 
-### Повне встановлення (все разом)
+> Якщо не працює — спробуйте:
+> ```powershell
+> iex "& {$(irm get.scoop.sh)} -RunAsAdmin"
+> ```
 
 ```powershell
-cd setup
-.\install.ps1
+scoop install php git
+```
+
+> Якщо з'явилась помилка `The remote name could not be resolved` для 7zip — зачекайте 5 хвилин і повторіть:
+> ```powershell
+> scoop install 7zip
+> scoop install git
+> ```
+> Якщо не допомагає — див. [troubleshooting/windows.md](../troubleshooting/windows.md#scoop-помилка-завантаження-7zip-або-інших-пакетів)
+
+3. **Закрийте** PowerShell та відкрийте **нове** вікно
+4. Перевірте:
+
+```powershell
+php -v
+git --version
 ```
 
 ### ⚠️ Можливі проблеми
 
-**Помилка виконання скриптів:**
-
-```powershell
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
-```
-
-**"Кракозябри" в консолі:**
-Переконайтесь, що файл збережено у кодуванні **UTF-8 без BOM**.
-
-### Альтернативні варіанти для Windows
-
-<details>
-<summary><b>WSL (Windows Subsystem for Linux) — рекомендовано</b></summary>
-
-```powershell
-wsl --install
-```
-
-Після перезавантаження відкрийте Ubuntu та використовуйте bash скрипти (див. macOS / Linux).
-
-</details>
-
-<details>
-<summary><b>XAMPP</b></summary>
-
-1. Завантажте [XAMPP](https://www.apachefriends.org/download.html)
-2. Встановіть з компонентами: Apache, MySQL, PHP
-3. Додайте PHP до PATH: `C:\xampp\php`
-
-</details>
+> Детальні рішення: [troubleshooting/windows.md](../troubleshooting/windows.md)
 
 ---
 

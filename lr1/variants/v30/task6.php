@@ -3,13 +3,9 @@
  * Завдання 5: Тризначне число
  *
  * Число 581: сума цифр=14, зворотне=185, паліндром=ні
- * Варіант 30 (Sub3): перевірка на паліндром замість найбільшого числа
  */
 require_once __DIR__ . '/layout.php';
 
-/**
- * Обчислює суму цифр числа
- */
 function sumOfDigits(int $number): int
 {
     $d1 = (int) floor($number / 100);
@@ -18,9 +14,6 @@ function sumOfDigits(int $number): int
     return $d1 + $d2 + $d3;
 }
 
-/**
- * Повертає число в зворотному порядку
- */
 function reverseNumber(int $number): int
 {
     $d1 = (int) floor($number / 100);
@@ -29,9 +22,6 @@ function reverseNumber(int $number): int
     return $d3 * 100 + $d2 * 10 + $d1;
 }
 
-/**
- * Перевіряє чи є число паліндромом
- */
 function isPalindrome(int $number): bool
 {
     return $number === reverseNumber($number);
@@ -40,12 +30,10 @@ function isPalindrome(int $number): bool
 // Вхідні дані (варіант 30)
 $number = 581;
 
-// Розбиваємо число на цифри
 $d1 = (int)($number / 100);
 $d2 = (int)(($number % 100) / 10);
 $d3 = $number % 10;
 
-// Обчислення
 $sum = sumOfDigits($number);
 $reversed = reverseNumber($number);
 $palindrome = isPalindrome($number);

@@ -1,15 +1,10 @@
 <?php
 /**
- * Завдання 6.1: Смугаста таблиця 11×8
- *
- * Чергування рядків двох кольорів
+ * Завдання 6.1: Смугаста таблиця 11x8
  */
 
 require_once dirname(__DIR__, 3) . '/shared/helpers/dev_reload.php';
 
-/**
- * Генерує смугасту HTML таблицю rows×cols
- */
 function generateStripedTable(int $rows, int $cols, string $color1, string $color2): string
 {
     $html = "<table class='chessboard'>";
@@ -25,13 +20,11 @@ function generateStripedTable(int $rows, int $cols, string $color1, string $colo
     return $html;
 }
 
-// Параметри (варіант 30)
 $rows = 11;
 $cols = 8;
 $color1 = '#6366f1';
 $color2 = '#a5b4fc';
 
-// Генеруємо таблицю
 $table = generateStripedTable($rows, $cols, $color1, $color2);
 ?>
 <!DOCTYPE html>
@@ -52,7 +45,7 @@ $table = generateStripedTable($rows, $cols, $color1, $color2);
         <div class="header-right">В-30 / Завд. 6.1</div>
     </header>
 
-    <h1>🎨 Смугаста таблиця <?= $rows ?>×<?= $cols ?></h1>
+    <h1>🎨 Смугаста таблиця <?= $rows ?>x<?= $cols ?></h1>
     <div class="params">generateStripedTable(<?= $rows ?>, <?= $cols ?>)</div>
 
     <?= $table ?>

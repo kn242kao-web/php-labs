@@ -6,9 +6,6 @@
  */
 require_once __DIR__ . '/layout.php';
 
-/**
- * Визначає чи є літера голосною чи приголосною
- */
 function isVowelOrConsonant(string $letter): string
 {
     switch (strtolower($letter)) {
@@ -26,7 +23,6 @@ function isVowelOrConsonant(string $letter): string
 // Вхідні дані (варіант 30)
 $letter = 'm';
 
-// Визначення
 $result = isVowelOrConsonant($letter);
 $isVowel = $result === "голосна";
 

@@ -6,17 +6,11 @@
  */
 require_once __DIR__ . '/layout.php';
 
-/**
- * Конвертує гривні в євро
- */
 function convertUahToEur(float $uah, float $rate): float
 {
     return round($uah / $rate, 2);
 }
 
-/**
- * Застосовує комісію банку
- */
 function applyCommission(float $amount, float $commissionPercent): float
 {
     return round($amount * (1 - $commissionPercent / 100), 2);
@@ -27,7 +21,6 @@ $uah = 48600;
 $rate = 47.50;
 $commission = 3;
 
-// Розрахунок
 $eurBeforeCommission = convertUahToEur($uah, $rate);
 $eurAfterCommission = applyCommission($eurBeforeCommission, $commission);
 

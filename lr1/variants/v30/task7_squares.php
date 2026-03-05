@@ -1,15 +1,10 @@
 <?php
 /**
- * Завдання 6.2: 20 зелених трикутників на сірому тлі
- *
- * Розмір зростає з кожною фігурою (Sub3)
+ * Завдання 6.2: 20 зелених трикутників на сірому тлі (розмір зростає)
  */
 
 require_once dirname(__DIR__, 3) . '/shared/helpers/dev_reload.php';
 
-/**
- * Генерує HTML з трикутниками зростаючого розміру
- */
 function generateGrowingTriangles(int $n): string
 {
     $html = "<div style='position:relative;width:100vw;height:100vh;background:#374151;overflow:hidden;'>";
@@ -20,7 +15,6 @@ function generateGrowingTriangles(int $n): string
         $left = mt_rand(5, 85);
         $opacity = mt_rand(70, 100) / 100;
 
-        // CSS triangle via borders
         $halfSize = (int)($size / 2);
         $html .= "<div style='
             position:absolute;
@@ -39,10 +33,7 @@ function generateGrowingTriangles(int $n): string
     return $html;
 }
 
-// Кількість трикутників (варіант 30)
 $n = 20;
-
-// Генеруємо
 $triangles = generateGrowingTriangles($n);
 ?>
 <!DOCTYPE html>

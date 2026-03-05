@@ -6,9 +6,6 @@
  */
 require_once __DIR__ . '/layout.php';
 
-/**
- * Визначає пору року за номером місяця
- */
 function determineSeason(int $month): string
 {
     if ($month >= 3 && $month <= 5) {
@@ -22,9 +19,6 @@ function determineSeason(int $month): string
     }
 }
 
-/**
- * Повертає кількість днів у місяці
- */
 function daysInMonth(int $month, int $year = 2025): int
 {
     return cal_days_in_month(CAL_GREGORIAN, $month, $year);
@@ -33,11 +27,9 @@ function daysInMonth(int $month, int $year = 2025): int
 // Вхідні дані (варіант 30)
 $month = 9;
 
-// Визначення
 $season = determineSeason($month);
 $days = daysInMonth($month);
 
-// Назви місяців
 $monthNames = [
     1 => "Січень", 2 => "Лютий", 3 => "Березень",
     4 => "Квітень", 5 => "Травень", 6 => "Червень",
@@ -45,7 +37,6 @@ $monthNames = [
     10 => "Жовтень", 11 => "Листопад", 12 => "Грудень"
 ];
 
-// Кольори та емодзі
 $styles = [
     "Весна" => ["class" => "spring", "color" => "#10b981", "emoji" => "🌸"],
     "Літо" => ["class" => "summer", "color" => "#f59e0b", "emoji" => "☀️"],
