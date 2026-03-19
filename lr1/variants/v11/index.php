@@ -1,4 +1,8 @@
 <?php
+/**
+ * Variant 30 Index Page
+ */
+
 require_once dirname(__DIR__, 3) . '/shared/templates/task_cards.php';
 require_once dirname(__DIR__, 3) . '/shared/helpers/paths.php';
 
@@ -12,13 +16,13 @@ $tasks = [
     'task7_squares.php' => ['name' => 'Завдання 6.2'],
 ];
 
-$demoUrl = '/lr1/demo/index.php?from=v11';
+$demoUrl = '/lr1/demo/index.php?from=v30';
 ?>
 <!DOCTYPE html>
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <title>Варіант 11 — ЛР1</title>
+    <title>Варіант 30 — ЛР1</title>
     <link rel="stylesheet" href="<?= webPath(dirname(__DIR__, 3) . '/shared/css/base.css') ?>">
     <link rel="stylesheet" href="<?= webPath(dirname(__DIR__, 2) . '/demo/demo.css') ?>">
 </head>
@@ -29,12 +33,12 @@ $demoUrl = '/lr1/demo/index.php?from=v11';
         </div>
         <div class="header-center"></div>
         <div class="header-right">
-            Варіант 11
+            Варіант 30
         </div>
     </header>
 
     <h1 class="index-title">
-        Варіант 11
+        Варіант 30
         <br><span class="index-subtitle">Лабораторна робота №1</span>
     </h1>
 

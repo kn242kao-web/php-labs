@@ -1,5 +1,8 @@
 <?php
-require_once dirname(__DIR__, 3) . '/shared/helpers/dev_reload.php';
+/**
+ * Завдання 6.1: Смугаста таблиця 11x8
+ */
+require_once __DIR__ . '/layout.php';
 
 function generateChessboardTable(int $rows, int $cols, string $color1, string $color2): string
 {
