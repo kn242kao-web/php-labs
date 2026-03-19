@@ -7,8 +7,8 @@ function sortCitiesByLength(string $input): array
     $cities = array_filter(array_map('trim', preg_split('/,|\s{2,}/u', $input)));
 
     usort($cities, function ($a, $b) {
-        $lenA = mb_strlen($a);
-        $lenB = mb_strlen($b);
+        $lenA = strlen($a);
+        $lenB = strlen($b);
 
         if ($lenA === $lenB) {
             return strcmp($a, $b); 
