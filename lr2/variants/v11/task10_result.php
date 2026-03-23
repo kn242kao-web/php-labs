@@ -107,4 +107,4 @@ ob_start();
 </div>
 <?php
 $content = ob_get_clean();
-renderVariantLayout($content, 'Завдання 11: Результат');
+renderVariantLayout($content, 'Завдання 10: Результат');
