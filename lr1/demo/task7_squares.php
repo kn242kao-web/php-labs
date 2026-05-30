@@ -1,14 +1,6 @@
 <?php
-/**
- * Завдання 7.2: Випадкові червоні квадрати на чорному тлі
- *
- * Демонстрація: цикли, функції, CSS positioning, mt_rand()
- */
 require_once __DIR__ . '/layout.php';
 
-/**
- * Генерує HTML з випадковими квадратами
- */
 function generateRandomSquares(int $n): string
 {
     $html = "<div class='shapes-container shapes-container--black'>";
@@ -34,10 +26,8 @@ function generateRandomSquares(int $n): string
     return $html;
 }
 
-// Кількість квадратів (demo)
 $n = 15;
 
-// Генеруємо
 $squares = generateRandomSquares($n);
 
 $content = $squares . '

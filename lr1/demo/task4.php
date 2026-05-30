@@ -1,14 +1,6 @@
 <?php
-/**
- * Завдання 4: Визначення пори року (if-else)
- *
- * Демонстрація: конструкція if-else
- */
 require_once __DIR__ . '/layout.php';
 
-/**
- * Визначає пору року за номером місяця
- */
 function determineSeason(int $month): string
 {
     if ($month >= 3 && $month <= 5) {
@@ -22,13 +14,10 @@ function determineSeason(int $month): string
     }
 }
 
-// Вхідні дані (demo)
 $month = 7;
 
-// Визначення пори року
 $season = determineSeason($month);
 
-// Назви місяців
 $monthNames = [
     1 => "Січень", 2 => "Лютий", 3 => "Березень",
     4 => "Квітень", 5 => "Травень", 6 => "Червень",
@@ -36,7 +25,6 @@ $monthNames = [
     10 => "Жовтень", 11 => "Листопад", 12 => "Грудень"
 ];
 
-// Кольори та емодзі для кожної пори
 $styles = [
     "Весна" => ["class" => "spring", "color" => "#10b981", "emoji" => "🌸"],
     "Літо" => ["class" => "summer", "color" => "#f59e0b", "emoji" => "☀️"],

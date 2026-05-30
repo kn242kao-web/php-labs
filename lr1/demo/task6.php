@@ -1,14 +1,6 @@
 <?php
-/**
- * Завдання 6: Операції з тризначним числом
- *
- * Демонстрація: mt_rand(), арифметичні операції, масиви, сортування
- */
 require_once __DIR__ . '/layout.php';
 
-/**
- * Обчислює суму цифр числа
- */
 function sumOfDigits(int $number): int
 {
     $d1 = (int) floor($number / 100);
@@ -17,9 +9,6 @@ function sumOfDigits(int $number): int
     return $d1 + $d2 + $d3;
 }
 
-/**
- * Повертає число в зворотному порядку
- */
 function reverseNumber(int $number): int
 {
     $d1 = (int) floor($number / 100);
@@ -28,9 +17,6 @@ function reverseNumber(int $number): int
     return $d3 * 100 + $d2 * 10 + $d1;
 }
 
-/**
- * Повертає найбільше можливе число з цифр
- */
 function maxFromDigits(int $number): int
 {
     $d1 = (int) floor($number / 100);
@@ -41,15 +27,12 @@ function maxFromDigits(int $number): int
     return $digits[0] * 100 + $digits[1] * 10 + $digits[2];
 }
 
-// Вхідні дані (demo) — тризначне число
 $number = mt_rand(100, 999);
 
-// Розбиваємо число на цифри для відображення
 $d1 = (int)($number / 100);
 $d2 = (int)(($number % 100) / 10);
 $d3 = $number % 10;
 
-// Обчислення
 $sum = sumOfDigits($number);
 $reversed = reverseNumber($number);
 $maxNum = maxFromDigits($number);

@@ -1,36 +1,14 @@
 <?php
-/**
- * Shared layout template for LR1 demo task pages
- *
- * Features:
- * - Fixed compact header (50px)
- * - Link back to variant if came from one (?from=vN)
- * - Task selector dropdown
- *
- * Usage:
- *   require_once __DIR__.'/layout.php';
- *   $content = '...HTML...';
- *   renderDemoLayout($content, $taskName, $bodyClass);
- */
 
 require_once dirname(__DIR__, 2) . '/shared/helpers/dev_reload.php';
 require_once dirname(__DIR__, 2) . '/shared/helpers/paths.php';
 
-/**
- * Renders the full demo page layout with fixed header
- *
- * @param string $content HTML content for the page
- * @param string $taskName Task name for title (e.g., "Завдання 3")
- * @param string $bodyClass CSS class for body (e.g., "task3-body")
- */
 function renderDemoLayout(string $content, string $taskName, string $bodyClass = ''): void
 {
-    // Check if came from a variant
     $fromVariant = $_GET['from'] ?? null;
     $currentTask = basename($_SERVER['SCRIPT_NAME']);
     $fromParam = $fromVariant ? '?from=' . htmlspecialchars($fromVariant) : '';
 
-    // Demo tasks list for selector
     $demoTasks = [
         'task2.php' => 'Завдання 2',
         'task3.php' => 'Завдання 3',
@@ -40,8 +18,6 @@ function renderDemoLayout(string $content, string $taskName, string $bodyClass =
         'task7_table.php' => 'Завдання 7.1',
         'task7_squares.php' => 'Завдання 7.2',
     ];
-
-    // Build variant URL if came from one
     $variantUrl = null;
     if ($fromVariant && preg_match('/^v\d+$/', $fromVariant)) {
         $variantUrl = "/lr1/variants/{$fromVariant}/{$currentTask}";

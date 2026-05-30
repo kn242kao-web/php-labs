@@ -1,14 +1,6 @@
 <?php
-/**
- * Завдання 7.1: Кольорова таблиця n×n
- *
- * Демонстрація: цикли for, функції, генерація HTML/CSS
- */
 require_once __DIR__ . '/layout.php';
 
-/**
- * Генерує HTML таблицю n×n з випадковими кольорами
- */
 function generateColorTable(int $n): string
 {
     $html = "<table class='chessboard'>";
@@ -24,10 +16,8 @@ function generateColorTable(int $n): string
     return $html;
 }
 
-// Параметри (demo)
 $n = 5;
 
-// Генеруємо таблицю
 $table = generateColorTable($n);
 
 $content = '

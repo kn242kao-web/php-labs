@@ -1,21 +1,14 @@
 <?php
-/**
- * Demo Index Page
- * Shows task cards (NO Demo link - this IS the demo)
- * Supports ?from=vN parameter to show "back to variant" button
- */
 
 require_once dirname(__DIR__, 2) . '/shared/templates/task_cards.php';
 require_once dirname(__DIR__, 2) . '/shared/helpers/paths.php';
 
-// Check if came from a variant
 $fromVariant = $_GET['from'] ?? null;
 $variantUrl = null;
 if ($fromVariant && preg_match('/^v\d+$/', $fromVariant)) {
     $variantUrl = "/lr1/variants/{$fromVariant}/index.php";
 }
 
-// Add ?from= parameter to task URLs
 $fromParam = $fromVariant ? '?from=' . htmlspecialchars($fromVariant) : '';
 
 $tasks = [
